@@ -1,0 +1,81 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head>
+<h1>Cadastro de Ordem de serviço</h1>
+<a href="#servico/listar"> Lista de Ordens <img alt="Novo" src="recursos/img/list-icon.png" border="0">
+</a>
+
+<br />
+<br />
+
+<div class="col-lg-9 col-md-8" ng-init="listarClientes();listarServicos();" ng-app="controleservicos" ng-controller="ordemServicoController">
+	<div class="card">
+		<div class="content">
+			<form id="formOrdemServico" ng-submit="salvarOrdemServico();">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Cliente</label> 
+									<select ng-model="ordemservico.cliente.id" id="selectCliente" selectrecord>
+									    <option value="">Selecione</option>
+										<option ng-repeat="cliente in clientesLista" value="{{cliente.id}}">
+											{{cliente.nome}}
+										</option>
+									</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Data de abertura</label> 
+									<input type="text" ng-model="ordemservico.dataAbertura" datepicker 
+									 class="form-control border-input input-small" id="dataAbertura"
+									 placeholder="data de abertura" required="required" />
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Serviço</label> 
+									<select ng-model="ordemservico.servicos.id[]" id="selectServico" selectrecord>
+									    <option value="">Selecione</option>
+										<option ng-repeat="servico in servicosLista" value="{{servico.id}}">
+											{{servico.descricao}}
+										</option>
+									</select>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Situação</label> 
+									<select ng-model="ordemservico.situacao" id="selectSituacao" selectrecord>									    
+										<option value="0" selected="selected">ABERTO</option>
+										<option value="1">EM ANDAMENTO</option>
+										<option value="2">FECHADO</option>
+									</select>
+							</div>
+						</div>
+					</div>
+					<div class="row" ng-show="{{ordemservico.id != null && ordemservico.dataEncerramento != null}}">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label>Data de encerramento</label> 
+									<input type="text" ng-model="ordemservico.dataEncerramento" datepicker 
+									 class="form-control border-input input-small" id="dataEncerramento"
+									 placeholder="data de encerramento" />
+							</div>
+						</div>
+					</div>
+				<button type="submit" class="btn btn-info btn-fill btn-wd">Cadastrar</button>
+				<button type="submit" class="btn btn-info btn-fill btn-wd" ng-click="$scope.ordemservico={}">Limpar</button>
+			</form>
+		</div>	
+	</div>
+</div>
+
+</html>

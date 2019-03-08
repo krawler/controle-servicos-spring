@@ -1,0 +1,141 @@
+<html ng-app="controleservicos">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>Sistema de controle de serviços</title>
+
+<!--  <meta charset="ISO-8859-1">  -->
+<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0'	name='viewport' />
+<meta name="viewport" content="width=device-width" />
+
+<link rel="stylesheet" href="recursos/plugins/bootstrap/bootstrap.css" />
+<link rel="stylesheet" href="recursos/plugins/jquery-ui/jquery-ui.min.css" />
+<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link href='http://fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
+<link href="recursos/plugins/fancybox/jquery.fancybox.css" rel="stylesheet" />
+<link href="recursos/plugins/fullcalendar/fullcalendar.css" rel="stylesheet" />
+<link href="recursos/css/style.css" rel="stylesheet" />
+<link href="recursos/plugins/select2/select2.css" rel="stylesheet" />
+
+<script type="text/javascript" src="recursos/js/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="recursos/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script type="text/javascript" src="recursos/plugins/bootstrap/bootstrap.min.js"></script>
+<script type="text/javascript" src="recursos/js/notify.min.js"></script>
+<script type="text/javascript" src="recursos/plugins/select2/select2.min.js"></script>
+<script type="text/javascript" src="recursos/js/devoops.js"></script>
+
+<script type="text/javascript" src="recursos/js/angular.min.js"></script>
+<script type="text/javascript" src="recursos/js/angular-route.js"></script>
+<script type="text/javascript" src="recursos/js/angular-resource.js"></script>
+<script type="text/javascript" src="recursos/js/angular-animate.js"></script>
+<script type="text/javascript" src="recursos/js/angular-locale_pt-br.js"></script>
+
+<script type="text/javascript" src="recursos/js/app.js"></script>
+
+
+
+
+
+<style type="text/css">
+
+.form-control {
+    /*background-color: #fffcf5;*/
+    border: solid  1px !important; 
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.3s ease 0s;
+    padding: 7px 18px;
+    height: 30px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+</style>
+
+</head>
+
+<body>
+	<!--Start Header-->
+	<div id="screensaver">
+		<canvas id="canvas"></canvas>
+		<i class="fa fa-lock" id="screen_unlock"></i>
+	</div>
+
+	<div id="modalbox">
+		<div class="devoops-modal">
+			<div class="devoops-modal-header">
+				<div class="modal-header-name">
+					<span>Basic table</span>
+				</div>
+				<div class="box-icons">
+					<a class="close-link">
+						<i class="fa fa-times"></i>
+					</a>
+				</div>
+			</div>
+			<div class="devoops-modal-inner">
+			</div>
+			<div class="devoops-modal-bottom">
+			</div>
+		</div>
+	</div>
+
+	<header class="navbar">
+		<div class="container-fluid expanded-panel">
+			<div class="row">
+				<div id="logo" class="col-xs-12 col-sm-2">
+					<a href="/"></a>
+				</div>
+				<div id="top-panel" class="col-xs-12 col-sm-10">
+					<div class="row">
+						<div class="col-xs-8">
+							<a href="#" class="show-sidebar">
+							  <i class="fa fa-bars"></i>
+							</a>
+							<div class="right" style="padding-top:15px;">
+								<h4>Sistema de controle de serviços</h4>
+							</div>								
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	
+	<div id="main" class="container-fluid">
+		<div class="row">
+	
+			<div id="sidebar-left" class="col-xs-2 col-sm-2">
+				<ul class="nav main-menu">
+					<li>
+						<a href="/" class="active ajax-link">
+							<i class="fa fa-dashboard"></i>
+							<span class="hidden-xs">Início</span>
+						</a>
+					</li>
+					
+					
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle">
+							<i class="fa fa-bar-chart-o"></i>
+							<span class="hidden-xs">Cadastros</span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a class="ajax-link" href="/controle-servicos-spring/index.html#/cliente/listar">Clientes</a></li>
+							<li><a class="ajax-link" href="/controle-servicos-spring/index.html#/servico/listar">Serviços</a></li>
+							<li><a class="ajax-link" href="/controle-servicos-spring/index.html#/ordem/listar">Ordem de serviço</a></li>
+						</ul>
+					</li>
+				</ul>
+			</div>	
+	
+		<!--Start Content-->
+		<div id="content" class="col-xs-12 col-sm-10" ng-view>
+						
+		</div>
+	<!--End Content-->
+	</div>
+</div>
+	
+	
+</body>
+
+</html>
