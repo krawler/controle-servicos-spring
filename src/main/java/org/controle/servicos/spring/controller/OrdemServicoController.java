@@ -22,8 +22,7 @@ public class OrdemServicoController {
 	@RequestMapping(value="salvar", method=RequestMethod.POST, headers = "Accept=application/json")
 	public ResponseEntity<OrdemServico> salvar(@RequestBody String strOrdemServico){
 		
-		OrdemServico ordem = new GsonBuilder().setDateFormat("yyyy-mm-dd")
-											  .create().fromJson(strOrdemServico, OrdemServico.class);
+		OrdemServico ordem = new GsonBuilder().setDateFormat("yyyy-mm-dd").create().fromJson(strOrdemServico, OrdemServico.class);
 		daoOrdemServico.persistir(ordem);
 		return new ResponseEntity<OrdemServico>(HttpStatus.CREATED);
 	}

@@ -39,8 +39,8 @@
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label>Serviço</label> 
-									<select ng-model="ordemservico.servicos.id[]" id="selectServico" selectrecord>
+								<label>Serviço</label><!--  --> 
+									<select  id="selectServico" ng-model="ordemservico.servico.id" ng-change="addservico()" selectrecord>
 									    <option value="">Selecione</option>
 										<option ng-repeat="servico in servicosLista" value="{{servico.id}}">
 											{{servico.descricao}}
@@ -49,6 +49,9 @@
 							</div>
 						</div>
 					</div>
+					<ul ng-repeat="servico in ordemservico.servicos">
+						<li>{{servico}}</li>
+					</ul>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">

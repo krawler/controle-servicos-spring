@@ -85,6 +85,7 @@ app.controller('clienteController', function($scope, $http, $location, $routePar
 	}
 
 	$scope.salvarCliente = function(){
+
 		$scope.cliente.dataNasc = converteData($scope.cliente.dataNasc);
 		$scope.cliente.sexo = parseInt($scope.cliente.sexo);
 		$http.post("ws/cliente/salvar", $scope.cliente).success(function(){
@@ -102,7 +103,8 @@ app.controller('clienteController', function($scope, $http, $location, $routePar
 });
 
 app.controller('ordemServicoController', function($scope, $http, $location, $routeParams){
-
+	
+	$scope.ordemservico.servicos = [];
 	
 	$scope.listarOrdens = function(){
 		$http.get("ws/ordem/listar").success(function(response){
@@ -128,7 +130,7 @@ app.controller('ordemServicoController', function($scope, $http, $location, $rou
 		});
 	}
 
-	$scope.salvarOrdemServico = function(){
+	$scope.salvarOrdemServico = function(){		
 		$scope.ordemservico.dataAbertura = converteData($scope.ordemservico.dataAbertura);
 		$http.post("ws/ordem/salvar", $scope.ordemservico).success(function(response){			
 			$scope.ordemservico = {};
@@ -136,6 +138,10 @@ app.controller('ordemServicoController', function($scope, $http, $location, $rou
 		}).error(function(response){
 			erro("Error: " + response);
 		});
+	}
+
+	$scope.addservico = function(){
+		$scope.servicos.push($scope.ordemservico.servico.id); 
 	}
 
 });
